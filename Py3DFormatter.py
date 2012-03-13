@@ -50,6 +50,7 @@ def read_network(network_path, fmt=None, **kwargs):
     fn = getattr(nx, 'read_' + fmt)
     return fn(network_path, **kwargs)
 
+
 def convert_network(network):
     """
     Coverts network to a dict based format
@@ -74,7 +75,7 @@ def convert_network(network):
             edge_dict = dict(
                 source=node,
                 target=target,
-                **attributes )
+                **attributes)
             edges_list.append(edge_dict)
     return dict(nodes=nodes_list, links=edges_list)
 
@@ -85,9 +86,18 @@ def main():
     parser.add_argument(
         '-o', '--output', help="Output file path",
         default=None)
-    parser.add_argument('--page-rank',
-                        help="Adds page rank to the output network",
-                        action='store_const', default=False, const=True)
+    parser.add_argument(
+        '--page-rank',
+        help="Adds page rank to the output network",
+        action='store_const', default=False, const=True)
+    parser.add_argument(
+        '--eigenvector',
+        help="Adds eigenvector centrality to the output network",
+        action='store_const', default=False, const=True)
+    parser.add_argument(
+        '--betweenness',
+        help="Adds betweenness centrality to the output network",
+        action='store_const', default=False, const=True)
 
     namespace = parser.parse_args()
 
