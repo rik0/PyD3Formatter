@@ -1,1 +1,11 @@
-This file was created by PyCharm 2.0.2 for binding GitHub repository
+usage: Py3DFormatter.py [-h] [--input INPUT] [-o OUTPUT] [--page-rank]
+                        [--eigenvector] [--betweenness]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input INPUT         Input file path
+  -o OUTPUT, --output OUTPUT
+                        Output file path
+  --page-rank           Adds page rank to the output network
+  --eigenvector         Adds eigenvector centrality to the output network
+  --betweenness         Adds betweenness centrality to the output network
